@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"
@@ -18,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/rikkirikkardo44/frontend-project-lvl1.git"
   },
-  "author": "Evgemy Unger",
+  "author": "Evgeny Unger",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rikkirikkardo44/frontend-project-lvl1/issues"
@@ -37,6 +38,9 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "readline-sync": "^1.4.10"
   }
 }
