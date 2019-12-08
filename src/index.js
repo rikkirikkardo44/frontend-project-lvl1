@@ -9,6 +9,13 @@ export const name = () => {
 
 export const greet = () => console.log(`Hello, ${userName}!`);
 
+export const startGame = (gameRules) => {
+  console.log('Welcome to the Brain games!');
+  console.log(gameRules);
+  name();
+  greet();
+};
+
 export const randomNumber = (min, max) => {
   const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
