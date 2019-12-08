@@ -1,12 +1,8 @@
-import {
-  greet, name, welcome, arithmeticProgression, randomNumber,
-} from '..';
+import { startGame, arithmeticProgression } from '..';
 
 const progression = (rounds = 3, length = 10) => {
-  welcome();
-  console.log('What number is missing in the progression?');
-  name();
-  greet();
+  const gameRules = 'What number is missing in the progression?';
+  startGame(gameRules);
   arithmeticProgression(rounds, length);
 };
 

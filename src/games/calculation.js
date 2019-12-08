@@ -1,12 +1,8 @@
-import {
-  greet, name, welcome, calcGame,
-} from '..';
+import { startGame, calcGame } from '..';
 
 const calculation = (rounds = 3, firstNum = 1, lastNum = 20) => {
-  welcome();
-  console.log('What is the result of the expression?');
-  name();
-  greet();
+  const gameRules = 'What is the result of the expression?';
+  startGame(gameRules);
   calcGame(rounds, firstNum, lastNum);
 };
 

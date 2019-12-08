@@ -1,12 +1,8 @@
-import {
-  greet, name, welcome, gcdGame,
-} from '..';
+import { startGame, gcdGame } from '..';
 
 const gcd = (rounds = 3, firstNum = 1, lastNum = 100) => {
-  welcome();
-  console.log('Find the greatest common divisor of given numbers.');
-  name();
-  greet();
+  const gameRules = 'Find the greatest common divisor of given numbers.';
+  startGame(gameRules);
   gcdGame(rounds, firstNum, lastNum);
 };
 

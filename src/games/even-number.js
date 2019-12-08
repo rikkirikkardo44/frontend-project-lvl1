@@ -1,12 +1,8 @@
-import {
-  welcome, name, greet, isEven,
-} from '..';
+import { startGame, isEven } from '..';
 
 const evenNumber = (rounds = 3, firstNum = 1, lastNum = 50) => {
-  welcome();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  name();
-  greet();
+  const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  startGame(gameRules);
   isEven(rounds, firstNum, lastNum);
 };
 
