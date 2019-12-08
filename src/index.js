@@ -9,7 +9,7 @@ export const name = () => {
 
 export const greet = () => console.log(`Hello, ${userName}!`);
 
-const randomNumber = (min, max) => {
+export const randomNumber = (min, max) => {
   const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 };
@@ -110,8 +110,38 @@ export const gcdGame = (rounds, firstNum, lastNum) => {
     if (String(answer) !== String(correctAnswer)) {
       break;
     }
-    if (i > rounds) {
-      console.log(`Congratulation, ${userName}!`);
+  }
+  if (i > rounds) {
+    console.log(`Congratulation, ${userName}!`);
+  }
+};
+
+const hiddenElement = (length, startNum, step) => {
+  let result = '';
+  const twoDots = randomNumber(2, length);
+  for (let i = 1; i <= length; i += 1) {
+    if (i === twoDots) {
+      result += ' ..';
+    } else {
+      result += ` ${startNum + (i - 1) * step}`;
     }
+  }
+  return result;
+};
+
+export const arithmeticProgression = (rounds, length) => {
+  let i = 1;
+  for (; i <= rounds; i += 1) {
+    const startNum = randomNumber(1, 50);
+    const step = randomNumber(1, 20);
+    console.log(hiddenElement(length, startNum, step));
+    const answer = readlineSync.question('Your answer: ');
+    answerCheck(answer, String(step));
+    if (answer !== String(step)) {
+      break;
+    }
+  }
+  if (i > rounds) {
+    console.log(`Congratulation, ${userName}!`);
   }
 };
