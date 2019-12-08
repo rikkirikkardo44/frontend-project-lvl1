@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-import { greet, name, welcome, reference, parityCheck } from '..';
+import evenNumber from '../games/even-number';
 
-welcome();
-reference();
-name();
-greet();
-parityCheck();
+evenNumber();

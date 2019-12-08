@@ -9,38 +9,74 @@ export const name = () => {
 
 export const greet = () => console.log(`Hello, ${userName}!`);
 
-export const reference = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const randomNumber = (min, max) => {
+  const rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+};
 
-export const parityCheck = (count = 3, firstNum = 1, lastNum = 50) => {
-  const randomNumber = (min, max) => {
-    const rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
-  };
+const answerCheck = (userAnswer, correctAnswer) => {
+  if (userAnswer === correctAnswer) {
+    console.log('Correct!');
+  } else {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet\`s try again, ${userName}!`);
+  }
+};
+
+export const isEven = (rounds, firstNum, lastNum) => {
   let i = 1;
-  for (; i <= count; i += 1) {
+  for (; i <= rounds; i += 1) {
     const number = randomNumber(firstNum, lastNum);
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ');
-
-    if ((number % 2) === 0) {
-      if (answer === 'yes') {
-        console.log('Correct!');
-      } else {
-        console.log(`'${answer}' is wrong answer ;(. Correct answer was 'yes'.\nLet\`s try again, ${userName}!`);
-        break;
-      }
-    }
-
-    if ((number % 2) !== 0) {
-      if (answer === 'no') {
-        console.log('Correct!');
-      } else {
-        console.log(`'${answer}' is wrong answer ;(. Correct answer was 'no'.\nLet\`s try again, ${userName}!`);
-        break;
-      }
+    const correctAnswer = (number % 2) === 0 ? 'yes' : 'no';
+    answerCheck(answer, correctAnswer);
+    if (answer !== correctAnswer) {
+      break;
     }
   }
-  if (i > count) {
+  if (i > rounds) {
+    console.log(`Congratulation, ${userName}!`);
+  }
+};
+
+const randomOperator = () => {
+  const addition = '+';
+  const subtraction = '-';
+  const multiplication = '*';
+  if (randomNumber(1, 3) === 1) {
+    return addition;
+  }
+  if (randomNumber(1, 3) === 2) {
+    return subtraction;
+  }
+  return multiplication;
+};
+
+export const calcGame = (rounds, firstNum, lastNum) => {
+  const conversion = (num1, num2, operator) => {
+    if (operator === '+') {
+      return num1 + num2;
+    }
+    if (operator === '-') {
+      return num1 - num2;
+    }
+    return num1 * num2;
+  };
+  let i = 1;
+  for (; i <= rounds; i += 1) {
+    const number1 = randomNumber(firstNum, lastNum);
+    const number2 = randomNumber(firstNum, lastNum);
+    const operator = randomOperator();
+    const example = number1 + operator + number2;
+    console.log(`Question: ${example}`);
+    const answer = readlineSync.question('Your answer: ');
+    const correctAnswer = conversion(number1, number2, operator);
+    answerCheck(String(answer), String(correctAnswer));
+    if (String(answer) !== String(correctAnswer)) {
+      break;
+    }
+  }
+  if (i > rounds) {
     console.log(`Congratulation, ${userName}!`);
   }
 };
