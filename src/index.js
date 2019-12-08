@@ -134,10 +134,35 @@ export const arithmeticProgression = (rounds, length) => {
   for (; i <= rounds; i += 1) {
     const startNum = randomNumber(1, 50);
     const step = randomNumber(1, 20);
-    console.log(hiddenElement(length, startNum, step));
+    console.log(`Question: ${hiddenElement(length, startNum, step)}`);
     const answer = readlineSync.question('Your answer: ');
     answerCheck(answer, String(step));
     if (answer !== String(step)) {
+      break;
+    }
+  }
+  if (i > rounds) {
+    console.log(`Congratulation, ${userName}!`);
+  }
+};
+
+const isPrime = (num) => {
+  for (let i = num - 1; i > 1; i -= 1) {
+    if (num % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
+};
+
+export const isPrimeGame = (rounds, maxNumber) => {
+  let i = 1;
+  for (; i <= rounds; i += 1) {
+    const number = randomNumber(1, maxNumber);
+    console.log(`Question: ${number}`);
+    const answer = readlineSync.question('Your answer: ');
+    answerCheck(answer, isPrime(number));
+    if (answer !== isPrime(number)) {
       break;
     }
   }
