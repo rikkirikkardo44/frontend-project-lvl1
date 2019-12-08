@@ -6,3 +6,5 @@
 [![asciicast](https://asciinema.org/a/b9zxDpnJ0MyNJqY540rPmNBbP.svg)](https://asciinema.org/a/b9zxDpnJ0MyNJqY540rPmNBbP)
 ## Install **brain-calc** game:
 [![asciicast](https://asciinema.org/a/xJwl5fJ3t0kReLUoeMJRR24sZ.svg)](https://asciinema.org/a/xJwl5fJ3t0kReLUoeMJRR24sZ)
+## Install **brain-gcd** game:
+[![asciicast](https://asciinema.org/a/4xFfwwV8dnFNeogPKFcfB8Ff9.svg)](https://asciinema.org/a/4xFfwwV8dnFNeogPKFcfB8Ff9)

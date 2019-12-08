@@ -80,3 +80,38 @@ export const calcGame = (rounds, firstNum, lastNum) => {
     console.log(`Congratulation, ${userName}!`);
   }
 };
+
+export const gcdGame = (rounds, firstNum, lastNum) => {
+  const greatestDivisor = (num1, num2) => {
+    if (num1 === num2) {
+      return num1;
+    }
+    const biggestNum = num1 < num2 ? num2 : num1;
+    const smallestNum = num1 < num2 ? num1 : num2;
+    if (biggestNum % smallestNum === 0) {
+      return smallestNum;
+    }
+    let i = smallestNum;
+    for (; ; i -= 1) {
+      if (biggestNum % i === 0 && smallestNum % i === 0) {
+        break;
+      }
+    }
+    return i;
+  };
+  let i = 1;
+  for (; i <= rounds; i += 1) {
+    const number1 = randomNumber(firstNum, lastNum);
+    const number2 = randomNumber(firstNum, lastNum);
+    console.log(`Question: ${number1} ${number2}`);
+    const answer = readlineSync.question('Your answer: ');
+    const correctAnswer = greatestDivisor(number1, number2);
+    answerCheck(String(answer), String(correctAnswer));
+    if (String(answer) !== String(correctAnswer)) {
+      break;
+    }
+    if (i > rounds) {
+      console.log(`Congratulation, ${userName}!`);
+    }
+  }
+};
