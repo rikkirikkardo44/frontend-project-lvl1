@@ -20,9 +20,7 @@ const gameEngine = (game, gameRule, rounds = 3) => {
       return;
     }
   }
-  if (i > rounds) {
-    console.log(`Congratulation, ${userName}!`);
-  }
+  console.log(`Congratulation, ${userName}!`);
 };
 
 export default gameEngine;

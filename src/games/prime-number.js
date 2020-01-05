@@ -4,9 +4,10 @@ import gameEngine from '../engine';
 
 const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrime = (num) => {
+const primeCheck = (num) => {
+  const isPrime = (num1, num2) => (num1 % num2) === 0;
   for (let i = num - 1; i > 1; i -= 1) {
-    if (num % i === 0) {
+    if (isPrime(num, i) === true) {
       return 'no';
     }
   }
@@ -15,7 +16,7 @@ const isPrime = (num) => {
 
 const isPrimeQuestion = () => {
   const question = randomNumber(1, 150);
-  const answer = isPrime(question);
+  const answer = primeCheck(question);
   return cons(question, answer);
 };
 

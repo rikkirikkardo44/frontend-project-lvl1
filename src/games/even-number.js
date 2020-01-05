@@ -4,14 +4,15 @@ import gameEngine from '../engine';
 
 const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (firstNum = 1, lastNum = 50) => {
-  const question = randomNumber(firstNum, lastNum);
-  const answer = (question % 2) === 0 ? 'yes' : 'no';
+const evenCheck = () => {
+  const isEven = (number) => (number % 2) === 0;
+  const question = randomNumber(1, 50);
+  const answer = isEven(question) === true ? 'yes' : 'no';
   return cons(question, answer);
 };
 
 const evenNumber = () => {
-  gameEngine(isEven, gameRules);
+  gameEngine(evenCheck, gameRules);
 };
 
 export default evenNumber;

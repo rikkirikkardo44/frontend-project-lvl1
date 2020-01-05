@@ -18,18 +18,19 @@ const randomOperator = () => {
 };
 
 const stringOperatorConversion = (num1, num2, stringOperator) => {
-  if (stringOperator === '+') {
-    return num1 + num2;
+  switch (stringOperator) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    default:
+      return num1 * num2;
   }
-  if (stringOperator === '-') {
-    return num1 - num2;
-  }
-  return num1 * num2;
 };
 
-const calcGame = (firstNum = 1, lastNum = 20) => {
-  const number1 = randomNumber(firstNum, lastNum);
-  const number2 = randomNumber(firstNum, lastNum);
+const calcGame = () => {
+  const number1 = randomNumber(1, 20);
+  const number2 = randomNumber(1, 20);
   const operator = randomOperator();
   const question = number1 + operator + number2;
   const answer = stringOperatorConversion(number1, number2, operator);

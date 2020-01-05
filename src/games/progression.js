@@ -9,9 +9,9 @@ const hiddenElement = (length, startNum, step) => {
   const twoDots = randomNumber(2, length);
   for (let i = 1; i <= length; i += 1) {
     if (i === twoDots) {
-      result += ' ..';
+      result = `${result} ..`;
     } else {
-      result += ` ${startNum + (i - 1) * step}`;
+      result = `${result} ${startNum + (i - 1) * step}`;
     }
   }
   return result;
