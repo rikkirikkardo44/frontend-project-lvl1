@@ -5,16 +5,9 @@ import gameEngine from '../engine';
 const gameRules = 'What is the result of the expression?';
 
 const randomOperator = () => {
-  const addition = '+';
-  const subtraction = '-';
-  const multiplication = '*';
-  if (randomNumber(1, 3) === 1) {
-    return addition;
-  }
-  if (randomNumber(1, 3) === 2) {
-    return subtraction;
-  }
-  return multiplication;
+  const operator = ['+', '-', '*'];
+  const random = Math.floor(Math.random() * operator.length);
+  return operator[random];
 };
 
 const stringOperatorConversion = (num1, num2, stringOperator) => {
