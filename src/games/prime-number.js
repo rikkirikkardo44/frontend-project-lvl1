@@ -1,27 +1,27 @@
 import { cons } from '@hexlet/pairs';
 import randomNumber from '..';
 import gameEngine from '../engine';
+import { isEven } from './even-number';
 
-const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const primeCheck = (num) => {
-  const isPrime = (num1, num2) => (num1 % num2) === 0;
+const isPrime = (num) => {
   for (let i = num - 1; i > 1; i -= 1) {
-    if (isPrime(num, i) === true) {
-      return 'no';
+    if (isEven(num, i) === true) {
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
-const isPrimeQuestion = () => {
+const returnsGameData = () => {
   const question = randomNumber(1, 150);
-  const answer = primeCheck(question);
+  const answer = (isPrime(question) === true) ? 'yes' : 'no';
   return cons(question, answer);
 };
 
 const primeNumber = () => {
-  gameEngine(isPrimeQuestion, gameRules);
+  gameEngine(returnsGameData, gameRule);
 };
 
 export default primeNumber;

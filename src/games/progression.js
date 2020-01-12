@@ -1,8 +1,8 @@
-import { cons } from '@hexlet/pairs';
+import { cons, car, cdr } from '@hexlet/pairs';
 import randomNumber from '..';
 import gameEngine from '../engine';
 
-const gameRules = 'What number is missing in the progression?';
+const gameRule = 'What number is missing in the progression?';
 
 const hiddenElement = (length, startNum, step) => {
   let result = '';
@@ -14,18 +14,20 @@ const hiddenElement = (length, startNum, step) => {
       result = `${result} ${startNum + (i - 1) * step}`;
     }
   }
-  return result;
+  return cons(result, twoDots - 1);
 };
 
-const arithmeticProgression = (length = 10) => {
+const returnsGameData = (length = 10) => {
   const startNum = randomNumber(1, 50);
   const step = randomNumber(1, 20);
-  const question = hiddenElement(length, startNum, step);
-  return cons(question, step);
+  const unknowNumberData = hiddenElement(length, startNum, step);
+  const question = car(unknowNumberData);
+  const answer = startNum + step * cdr(unknowNumberData);
+  return cons(question, answer);
 };
 
 const progression = () => {
-  gameEngine(arithmeticProgression, gameRules);
+  gameEngine(returnsGameData, gameRule);
 };
 
 export default progression;

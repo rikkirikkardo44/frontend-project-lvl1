@@ -2,36 +2,38 @@ import { cons } from '@hexlet/pairs';
 import randomNumber from '..';
 import gameEngine from '../engine';
 
-const gameRules = 'What is the result of the expression?';
+const gameRule = 'What is the result of the expression?';
 
 const randomOperator = () => {
-  const operator = ['+', '-', '*'];
-  const random = Math.floor(Math.random() * operator.length);
-  return operator[random];
+  const operators = ['+', '-', '*'];
+  const random = randomNumber(1, operators.length - 1);
+  return operators[random];
 };
 
-const stringOperatorConversion = (num1, num2, stringOperator) => {
-  switch (stringOperator) {
+const operatorConversion = (num1, num2, operator) => {
+  switch (operator) {
     case '+':
       return num1 + num2;
     case '-':
       return num1 - num2;
-    default:
+    case '*':
       return num1 * num2;
+    // no default
   }
+  return undefined;
 };
 
-const calcGame = () => {
+const returnsGameData = () => {
   const number1 = randomNumber(1, 20);
   const number2 = randomNumber(1, 20);
   const operator = randomOperator();
   const question = number1 + operator + number2;
-  const answer = stringOperatorConversion(number1, number2, operator);
+  const answer = operatorConversion(number1, number2, operator);
   return cons(question, answer);
 };
 
 const calculation = () => {
-  gameEngine(calcGame, gameRules);
+  gameEngine(returnsGameData, gameRule);
 };
 
 export default calculation;
