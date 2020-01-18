@@ -6,14 +6,14 @@ const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 export const isEven = (number) => (number % 2) === 0;
 
-const returnsGameData = () => {
+const generateGameData = () => {
   const question = randomNumber(1, 50);
   const answer = isEven(question) === true ? 'yes' : 'no';
-  return cons(question, answer);
+  return cons(question, String(answer));
 };
 
 const evenNumber = () => {
-  gameEngine(returnsGameData, gameRule);
+  gameEngine(generateGameData, gameRule);
 };
 
 export default evenNumber;

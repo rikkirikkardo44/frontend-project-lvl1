@@ -13,25 +13,23 @@ const greatestDivisor = (num1, num2) => {
   if (biggestNum % smallestNum === 0) {
     return smallestNum;
   }
-  let i = smallestNum;
-  for (; ; i -= 1) {
+  for (let i = smallestNum; ; i -= 1) {
     if (biggestNum % i === 0 && smallestNum % i === 0) {
-      break;
+      return i;
     }
   }
-  return i;
 };
 
-const returnsGameData = (firstNum = 1, lastNum = 100) => {
+const generateGameData = (firstNum = 1, lastNum = 100) => {
   const number1 = randomNumber(firstNum, lastNum);
   const number2 = randomNumber(firstNum, lastNum);
   const question = `${number1} ${number2}`;
   const answer = greatestDivisor(number1, number2);
-  return cons(question, answer);
+  return cons(question, String(answer));
 };
 
 const gcd = () => {
-  gameEngine(returnsGameData, gameRule);
+  gameEngine(generateGameData, gameRule);
 };
 
 export default gcd;

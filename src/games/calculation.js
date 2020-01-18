@@ -4,13 +4,14 @@ import gameEngine from '../engine';
 
 const gameRule = 'What is the result of the expression?';
 
+const operators = ['+', '-', '*'];
+
 const randomOperator = () => {
-  const operators = ['+', '-', '*'];
   const random = randomNumber(1, operators.length - 1);
   return operators[random];
 };
 
-const operatorConversion = (num1, num2, operator) => {
+const calculate = (num1, num2, operator) => {
   switch (operator) {
     case '+':
       return num1 + num2;
@@ -20,20 +21,20 @@ const operatorConversion = (num1, num2, operator) => {
       return num1 * num2;
     // no default
   }
-  return undefined;
+  return console.log('Error: unknow operator.');
 };
 
-const returnsGameData = () => {
+const generateGameData = () => {
   const number1 = randomNumber(1, 20);
   const number2 = randomNumber(1, 20);
   const operator = randomOperator();
   const question = number1 + operator + number2;
-  const answer = operatorConversion(number1, number2, operator);
-  return cons(question, answer);
+  const answer = calculate(number1, number2, operator);
+  return cons(question, String(answer));
 };
 
 const calculation = () => {
-  gameEngine(returnsGameData, gameRule);
+  gameEngine(generateGameData, gameRule);
 };
 
 export default calculation;

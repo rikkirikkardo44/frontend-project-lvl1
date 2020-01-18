@@ -4,7 +4,7 @@ import gameEngine from '../engine';
 
 const gameRule = 'What number is missing in the progression?';
 
-const hiddenElement = (length, startNum, step) => {
+const creationProgressionData = (length, startNum, step) => {
   let result = '';
   const twoDots = randomNumber(2, length);
   for (let i = 1; i <= length; i += 1) {
@@ -17,17 +17,17 @@ const hiddenElement = (length, startNum, step) => {
   return cons(result, twoDots - 1);
 };
 
-const returnsGameData = (length = 10) => {
+const generateGameData = (length = 10) => {
   const startNum = randomNumber(1, 50);
   const step = randomNumber(1, 20);
-  const unknowNumberData = hiddenElement(length, startNum, step);
+  const unknowNumberData = creationProgressionData(length, startNum, step);
   const question = car(unknowNumberData);
   const answer = startNum + step * cdr(unknowNumberData);
-  return cons(question, answer);
+  return cons(question, String(answer));
 };
 
 const progression = () => {
-  gameEngine(returnsGameData, gameRule);
+  gameEngine(generateGameData, gameRule);
 };
 
 export default progression;
