@@ -21,7 +21,7 @@ const calculate = (num1, num2, operator) => {
       return num1 * num2;
     // no default
   }
-  return console.log('Error: unknow operator.');
+  return false;
 };
 
 const generateGameData = () => {
@@ -33,8 +33,8 @@ const generateGameData = () => {
   return cons(question, String(answer));
 };
 
-const calculation = () => {
+const startCalculationGame = () => {
   gameEngine(generateGameData, gameRule);
 };
 
-export default calculation;
+export default startCalculationGame;

@@ -4,7 +4,7 @@ import gameEngine from '../engine';
 
 const gameRule = 'Find the greatest common divisor of given numbers.';
 
-const greatestDivisor = (num1, num2) => {
+const findGreatestDivisor = (num1, num2) => {
   if (num1 === num2) {
     return num1;
   }
@@ -24,12 +24,12 @@ const generateGameData = (firstNum = 1, lastNum = 100) => {
   const number1 = randomNumber(firstNum, lastNum);
   const number2 = randomNumber(firstNum, lastNum);
   const question = `${number1} ${number2}`;
-  const answer = greatestDivisor(number1, number2);
+  const answer = findGreatestDivisor(number1, number2);
   return cons(question, String(answer));
 };
 
-const gcd = () => {
+const startGcdGame = () => {
   gameEngine(generateGameData, gameRule);
 };
 
-export default gcd;
+export default startGcdGame;

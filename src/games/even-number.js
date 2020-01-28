@@ -12,8 +12,8 @@ const generateGameData = () => {
   return cons(question, String(answer));
 };
 
-const evenNumber = () => {
+const startEvenNumberGame = () => {
   gameEngine(generateGameData, gameRule);
 };
 
-export default evenNumber;
+export default startEvenNumberGame;
