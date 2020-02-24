@@ -7,21 +7,21 @@
 ## The package has 5 games
 * __Even number__\
 *Answer "yes" if the number is even, otherwise answer "no".*\
-`brain-even`
+`brain-even`\
 [![asciicast](https://asciinema.org/a/M1bTYmhFBD4CItUwAIRbh2zAP.svg)](https://asciinema.org/a/M1bTYmhFBD4CItUwAIRbh2zAP)
 * __Calculate__\
 *What is the result of the expression?*\
-`brain-calc`
+`brain-calc`\
 [![asciicast](https://asciinema.org/a/WZGO0bNotRfjNmLyGDClqkbhH.svg)](https://asciinema.org/a/WZGO0bNotRfjNmLyGDClqkbhH)
 * __Greatest common divisior__\
 *Find the greatest common divisor of given numbers.*\
-`brain-gcd`
+`brain-gcd`\
 [![asciicast](https://asciinema.org/a/SZOvdqTV2gfYWBfJwwlEiq4Fn.svg)](https://asciinema.org/a/SZOvdqTV2gfYWBfJwwlEiq4Fn)
 * __Unknom progression number__\
 *What number is missing in the progression?*\
-`brain-progression`
+`brain-progression`\
 [![asciicast](https://asciinema.org/a/1uFDdqdp9rFOmuVOuVHYgTejS.svg)](https://asciinema.org/a/1uFDdqdp9rFOmuVOuVHYgTejS)
 * __Prime number__\
 *Answer "yes" if given number is prime. Otherwise answer "no".*\
-`brain-prime`
+`brain-prime`\
 [![asciicast](https://asciinema.org/a/p4s8PE96KOzFlqukoavC4We8V.svg)](https://asciinema.org/a/p4s8PE96KOzFlqukoavC4We8V)
