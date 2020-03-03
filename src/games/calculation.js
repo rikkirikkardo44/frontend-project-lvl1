@@ -7,8 +7,8 @@ const gameRule = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
 
 const randomOperator = () => {
-  const random = randomNumber(1, operators.length - 1);
-  return operators[random];
+  const index = randomNumber(0, operators.length - 1);
+  return operators[index];
 };
 
 const calculate = (num1, num2, operator) => {
@@ -28,7 +28,7 @@ const generateGameData = () => {
   const number1 = randomNumber(1, 20);
   const number2 = randomNumber(1, 20);
   const operator = randomOperator();
-  const question = number1 + operator + number2;
+  const question = `${number1} ${operator} ${number2}`;
   const answer = calculate(number1, number2, operator);
   return cons(question, String(answer));
 };
